@@ -1,0 +1,220 @@
+/* =========================================
+   VARIABEL WARNA & PENGATURAN DASAR
+========================================= */
+:root {
+    --primary: #2563eb;
+    --bg-body: #f3f6ff;
+    --bg-card: #ffffff;
+    --text-main: #1e293b;
+    --text-muted: #64748b;
+    --radius: 16px;
+    --shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+body.dark-mode {
+    --bg-body: #0f172a;
+    --bg-card: #1e293b;
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
+}
+
+* {
+    margin: 0; padding: 0; box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-color: var(--bg-body);
+    color: var(--text-main);
+    line-height: 1.6;
+    transition: background-color 0.3s, color 0.3s;
+    overflow-x: hidden;
+}
+
+/* =========================================
+   NAVIGASI
+========================================= */
+nav {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 15px 5%; background: var(--bg-card); margin: 20px 5%;
+    border-radius: 50px; box-shadow: var(--shadow); position: sticky;
+    top: 20px; z-index: 1000; transition: 0.3s;
+}
+
+.nav-brand { display: flex; align-items: center; gap: 12px; font-weight: 700; font-size: 15px; }
+.nav-avatar { width: 35px; height: 35px; border-radius: 50%; object-fit: cover; border: 2px solid var(--primary); }
+.nav-links { display: flex; gap: 20px; list-style: none; align-items: center; }
+.nav-links a { text-decoration: none; color: var(--text-muted); font-size: 14px; font-weight: 500; display: flex; align-items: center; gap: 5px; transition: 0.3s; }
+.nav-links a:hover, .nav-links a.active { color: var(--primary); font-weight: 600; }
+
+/* =========================================
+   KOMPONEN UMUM
+========================================= */
+.container { padding: 40px 5%; max-width: 1100px; margin: auto; }
+.card { background: var(--bg-card); padding: 25px; border-radius: var(--radius); box-shadow: var(--shadow); transition: 0.3s; }
+.btn-primary { background: var(--primary); color: white; padding: 12px 25px; border-radius: 10px; text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; justify-content: center; gap: 8px; transition: 0.3s; font-size: 14px;}
+.btn-primary:hover { background: #1e40af; transform: translateY(-3px); }
+.btn-outline { background: transparent; border: 1px solid #e2e8f0; color: var(--text-main); padding: 10px 20px; border-radius: 8px; font-weight: 500; text-decoration: none; display: inline-flex; justify-content: center; align-items: center; gap: 8px; transition: 0.3s; font-size: 14px; }
+.btn-outline:hover { background: var(--bg-body); border-color: var(--primary); }
+.btn-disabled { opacity: 0.5; pointer-events: none; }
+footer { text-align: center; padding: 40px; color: var(--text-muted); font-size: 12px; }
+
+/* =========================================
+   HALAMAN BERANDA
+========================================= */
+.hero-container { display: grid; grid-template-columns: 1.2fr 1fr; gap: 60px; align-items: center; padding: 40px 0; }
+.welcome-badge { background: #dbeafe; color: var(--primary); padding: 6px 16px; border-radius: 20px; font-size: 12px; font-weight: 600; display: inline-block; margin-bottom: 20px; }
+.hero-title { font-size: 42px; font-weight: 800; line-height: 1.2; margin-bottom: 25px; }
+.hero-title span { color: var(--primary); }
+.hero-desc { color: var(--text-muted); font-size: 15px; margin-bottom: 35px; max-width: 90%; }
+.btn-group { display: flex; gap: 15px; margin-bottom: 35px; }
+.btn-white { background: var(--bg-card); color: var(--text-main); border: 1px solid #e2e8f0; padding: 12px 25px; border-radius: 10px; text-decoration: none; font-weight: 500; display: inline-flex; justify-content: center; align-items: center; transition: 0.3s; }
+.btn-white:hover { border-color: var(--primary); color: var(--primary); }
+
+.social-group { display: flex; gap: 15px; }
+.social-btn { width: 40px; height: 40px; background: var(--bg-card); border: 1px solid #e2e8f0; border-radius: 50%; display: flex; justify-content: center; align-items: center; color: var(--text-muted); font-size: 18px; text-decoration: none; transition: 0.3s; }
+.social-btn:hover { color: var(--primary); border-color: var(--primary); transform: translateY(-3px);}
+
+.hero-image-wrapper { position: relative; }
+.main-hero-img { width: 100%; border-radius: 24px; box-shadow: 0 20px 40px rgba(0,0,0,0.08); }
+.floating-task-card { position: absolute; bottom: -20px; left: -30px; background: var(--bg-card); padding: 15px 25px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); display: flex; align-items: center; gap: 15px; text-decoration: none; animation: float 4s ease-in-out infinite; transition: 0.3s; z-index: 10; }
+.floating-task-card:hover { transform: scale(1.05); box-shadow: 0 15px 40px rgba(37, 99, 235, 0.15); }
+@keyframes float { 0% { transform: translateY(0px); } 50% { transform: translateY(-12px); } 100% { transform: translateY(0px); } }
+.icon-green { background: #dcfce7; color: #166534; width: 40px; height: 40px; border-radius: 10px; display: flex; justify-content: center; align-items: center; font-size: 20px; }
+
+.info-academic { margin-top: 80px; text-align: center; }
+.info-academic h3 { margin-bottom: 10px; font-size: 26px; color: var(--text-main); }
+.info-desc { color: var(--text-muted); font-size: 15px; max-width: 600px; margin: 0 auto 40px auto; line-height: 1.6; }
+.info-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.info-card { display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 35px 20px; text-align: center; }
+.info-card small { color: var(--primary); font-weight: 500; font-size: 13px; margin-bottom: 12px; text-transform: uppercase; }
+.info-card .info-main { font-weight: 700; font-size: 18px; color: var(--text-main); margin-bottom: 5px; }
+
+.focus-section { margin-top: 60px; background: var(--bg-card); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow); display: flex; align-items: center; justify-content: space-between; position: relative; overflow: hidden; }
+.focus-content { position: relative; z-index: 2; }
+.focus-icon-bg { position: absolute; right: -20px; bottom: -40px; font-size: 200px; color: var(--primary); opacity: 0.05; z-index: 1; }
+.tools-section { margin-top: 60px; margin-bottom: 40px; }
+.tools-grid { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
+.tool-card { background: var(--bg-card); border: 1px solid #e2e8f0; padding: 12px 25px; border-radius: 12px; display: flex; align-items: center; gap: 10px; font-weight: 600; font-size: 14px; box-shadow: 0 4px 6px rgba(0,0,0,0.02); transition: 0.3s; }
+.tool-card:hover { transform: translateY(-5px); border-color: var(--primary); }
+
+/* =========================================
+   HALAMAN PROFIL
+========================================= */
+.profile-layout { display: grid; grid-template-columns: 300px 1fr; gap: 50px; align-items: start; }
+.profile-image-container { background: var(--bg-card); padding: 10px; border-radius: 20px; box-shadow: var(--shadow); }
+.profile-img-large { width: 100%; border-radius: 12px; display: block; filter: grayscale(100%); transition: 0.3s; }
+.profile-img-large:hover { filter: grayscale(0%); }
+
+.contact-info { margin-top: 25px; display: flex; flex-direction: column; gap: 15px; padding-left: 5px; }
+.contact-item { display: flex; align-items: center; gap: 12px; font-size: 14px; color: var(--text-muted); }
+.contact-item i { color: var(--primary); font-size: 18px; }
+
+.id-card-solid { background: #2563eb; color: white; padding: 30px; border-radius: 16px; box-shadow: 0 10px 25px rgba(37, 99, 235, 0.2); }
+.id-card-solid small { font-size: 10px; color: rgba(255, 255, 255, 0.7); font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+.id-card-solid span { font-weight: 700; font-size: 16px; color: #ffffff; display: block; margin-top: 4px; }
+
+/* Badge Mata Kuliah (Pill Shape) */
+.badge-matkul { 
+    background: #ffffff; 
+    color: #2563eb !important; 
+    padding: 6px 16px; 
+    border-radius: 50px; 
+    font-size: 13px !important; 
+    font-weight: 700 !important; 
+    display: inline-flex !important; 
+    align-items: center; 
+    gap: 6px; 
+}
+
+.timeline-item { border-left: 2px solid #e2e8f0; padding-left: 20px; position: relative; margin-left: 8px; margin-bottom: 20px; }
+.timeline-item::before { content: ''; position: absolute; left: -8px; top: 0; width: 14px; height: 14px; background: var(--primary); border-radius: 50%; }
+.timeline-date { font-size: 14px; color: var(--primary); font-weight: 600; margin-bottom: 5px; }
+.timeline-title { font-weight: 700; font-size: 16px; color: var(--text-main); }
+.timeline-subtitle { color: var(--text-muted); font-size: 14px; margin-top: 3px; }
+
+.skills-container { display: flex; flex-wrap: wrap; gap: 12px; }
+.skill-tag { background: var(--bg-card); border: 1px solid #e2e8f0; padding: 10px 20px; border-radius: 12px; font-size: 14px; font-weight: 500; color: var(--text-main); box-shadow: 0 2px 4px rgba(0,0,0,0.02); }
+
+/* =========================================
+   HALAMAN TUGAS (UPDATED SESUAI DESAIN)
+========================================= */
+.task-card-container { display: flex; flex-direction: column; gap: 25px; }
+.breadcrumb { font-size: 13px; color: var(--text-muted); margin-bottom: 25px; }
+.breadcrumb span { color: var(--primary); font-weight: 500; }
+.breadcrumb-link { color: var(--text-muted); text-decoration: none; transition: 0.3s; }
+.breadcrumb-link:hover { color: var(--primary); }
+
+.page-header { display: flex; align-items: center; gap: 15px; margin-bottom: 30px; }
+.page-icon { background: #dbeafe; color: var(--primary); padding: 12px; border-radius: 12px; font-size: 28px; }
+.instruction-box { background: var(--bg-card); padding: 20px; border-radius: 12px; border: 1px solid #e2e8f0; margin-bottom: 30px; font-size: 14px; color: var(--text-muted); line-height: 1.6;}
+
+.task-card-header { display: flex; align-items: center; gap: 15px; margin-bottom: 20px; }
+.status-badge { padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: 600; display: inline-flex; align-items: center; gap: 6px; }
+.status-selesai { background: #d1fae5; color: #059669; }
+.status-proses { background: #fef08a; color: #854d0e; }
+.date-info { font-size: 13px; color: var(--text-muted); display: flex; align-items: center; gap: 6px; font-weight: 500;}
+
+.task-content-wrapper { display: flex; justify-content: space-between; align-items: flex-start; }
+.task-text-content { flex: 1; padding-right: 40px; }
+.task-title { font-size: 20px; font-weight: 700; margin-bottom: 12px; color: var(--text-main); }
+.task-desc { color: var(--text-muted); font-size: 15px; line-height: 1.6; margin-bottom: 20px; }
+
+.file-format { background: #f1f5f9; padding: 8px 14px; border-radius: 8px; font-size: 12px; color: var(--text-muted); font-weight: 500; display: inline-flex; align-items: center; gap: 6px; }
+.btn-action-group { display: flex; flex-direction: column; gap: 12px; min-width: 170px; }
+
+/* Tombol Khusus Disabled (Tugas Belum Selesai) */
+.btn-disabled-blue {
+    background: #93c5fd !important; /* Biru pudar */
+    color: white !important;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+.btn-disabled-outline {
+    border-color: #e2e8f0 !important;
+    color: #94a3b8 !important;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+/* Dark Mode Adjustment for Tasks */
+body.dark-mode .status-selesai { background: rgba(5, 150, 105, 0.2); color: #34d399; }
+body.dark-mode .status-proses { background: rgba(133, 77, 14, 0.2); color: #fde047; }
+body.dark-mode .btn-disabled-blue { background: #334155 !important; color: #64748b !important; }
+body.dark-mode .btn-disabled-outline { border-color: #334155 !important; color: #64748b !important; }
+/* =========================================
+   DARK MODE
+========================================= */
+body.dark-mode .btn-white, body.dark-mode .social-btn, body.dark-mode .btn-outline, body.dark-mode .tool-card, body.dark-mode .skill-tag, body.dark-mode .instruction-box { border-color: #334155; }
+body.dark-mode .timeline-item { border-color: #334155; }
+body.dark-mode .file-format { background: #334155; color: #e2e8f0; }
+body.dark-mode .focus-icon-bg { opacity: 0.02; }
+body.dark-mode .id-card-solid { background: #1d4ed8; }
+body.dark-mode .profile-image-container { background: var(--bg-card); border: 1px solid #334155; }
+
+/* =========================================
+   RESPONSIVE MOBILE (HP)
+========================================= */
+@media (max-width: 768px) {
+    nav { flex-direction: column; padding: 15px; border-radius: 20px; gap: 15px; margin: 10px 5%; }
+    .nav-links { flex-wrap: wrap; justify-content: center; width: 100%; gap: 15px; }
+    .hero-container { grid-template-columns: 1fr; gap: 40px; text-align: center; }
+    .hero-title { font-size: 32px; }
+    .hero-desc { max-width: 100%; }
+    .btn-group, .social-group { justify-content: center; flex-wrap: wrap; }
+    
+    .floating-task-card { left: 50%; transform: translateX(-50%); bottom: -30px; width: 90%; justify-content: center; }
+    @keyframes float { 0% { transform: translate(-50%, 0px); } 50% { transform: translate(-50%, -10px); } 100% { transform: translate(-50%, 0px); } }
+
+    .info-grid { grid-template-columns: 1fr; }
+    .focus-section { flex-direction: column; text-align: center; padding: 30px 20px; }
+    .focus-icon-bg { right: 50%; transform: translateX(50%); font-size: 150px; }
+    
+    .profile-layout { grid-template-columns: 1fr; gap: 30px; }
+    .id-card-solid > div { grid-template-columns: 1fr !important; gap: 15px !important; }
+
+    .task-content-wrapper { flex-direction: column; }
+    .task-text-content { padding-right: 0; margin-bottom: 20px; }
+    .btn-action-group { width: 100%; flex-direction: row; flex-wrap: wrap; gap: 10px; }
+    .btn-action-group a { flex: 1; min-width: 140px; }
+}
